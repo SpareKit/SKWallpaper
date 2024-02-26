@@ -15,6 +15,8 @@
 
 + (NSURL*) getCurrentWallpaperPath:(NSScreen*)screen;
 
++ (NSError*) setWallpaperForScreen:(NSString*)filePath :(NSScreen*)screen;
+
 @end
 
 @implementation SKWallPaper
@@ -22,6 +24,18 @@
 + (NSURL*) getCurrentWallpaperPath:(NSScreen*)screen {
     return [[NSWorkspace sharedWorkspace] desktopImageURLForScreen:screen];
 }
+
++ (NSError*) setWallpaperForScreen:(NSString *)filePath :(NSScreen *)screen {
+    
+    NSDictionary<NSWorkspaceDesktopImageOptionKey, id>* dict;
+    NSURL* url = [[NSURL alloc] initFileURLWithPath:filePath];
+    NSError* error;
+    
+    [[NSWorkspace sharedWorkspace] setDesktopImageURL:url forScreen:screen options:dict error:&error];
+    
+    return error;
+}
+
 
 @end
 
