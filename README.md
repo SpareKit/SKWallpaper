@@ -21,5 +21,9 @@ if (fail != nil) {
 }
 ```
 
+## Want to use this in a Swift project?
+
+Follow this (tutorial)[https://stackoverflow.com/questions/24002369/how-do-i-call-objective-c-code-from-swift] to find out more
+
 See LICENSE for more details.
 Copyright (c) 2024, Mustafa Malik.
